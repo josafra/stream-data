@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AceStream TV</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#080c14;color:#e0e0e0;font-family:'Segoe UI',sans-serif;min-height:100vh}
+  h1{color:#00d4ff;font-size:2em;letter-spacing:4px;text-align:center;padding:24px 0 4px}
+  .sub{text-align:center;color:#4a6080;font-size:.85em;margin-bottom:16px}
+  .vpn{display:flex;align-items:center;gap:12px;background:rgba(255,150,0,.08);border:1px solid rgba(255,150,0,.4);border-radius:10px;padding:14px 20px;max-width:600px;margin:0 auto 18px}
+  .vpn strong{color:#ffaa00;display:block;margin-bottom:3px}
+  .vpn span{color:#8a7050;font-size:.82em}
+  .search{display:flex;justify-content:center;margin-bottom:18px;padding:0 16px}
+  .search input{width:100%;max-width:500px;padding:10px 18px;border-radius:25px;border:1px solid #1a2235;background:#0e1420;color:#e0e0e0;font-size:1em;outline:none}
+  .search input:focus{border-color:#00d4ff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;max-width:1200px;margin:0 auto;padding:0 16px 30px}
+  .card{background:#0e1420;border:1px solid #1a2235;border-radius:10px;padding:16px;transition:all .2s}
+  .card:hover{border-color:#00d4ff;transform:translateY(-2px)}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+  .nombre{font-weight:600;color:#c8e0ff;font-size:.95em}
+  .q{font-size:.68em;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+  .q4k{background:#ff9900;color:#000}
+  .q1080{background:#00d4ff;color:#000}
+  .q720{background:#a78bfa;color:#000}
+  .ace-id{font-family:monospace;font-size:.7em;color:#3a5070;background:#060a10;padding:5px 8px;border-radius:5px;word-break:break-all;margin-bottom:10px}
+  .acciones{display:flex;gap:7px;flex-wrap:wrap}
+  .btn-play{background:#00d4ff;color:#000;padding:7px 14px;border-radius:7px;text-decoration:none;font-size:.82em;font-weight:700}
+  .btn-play:hover{background:#33ddff}
+  .btn-copy{background:#1a2235;color:#aaa;border:1px solid #2a3a55;padding:7px 10px;border-radius:7px;cursor:pointer;font-size:.78em}
+  .btn-copy:hover{background:#2a3a55;color:#fff}
+  .toast{position:fixed;bottom:25px;right:25px;background:#00d4ff;color:#000;padding:10px 20px;border-radius:10px;font-weight:700;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+  .toast.show{opacity:1}
+  #loading{text-align:center;padding:60px;color:#4a6080}
+  .spinner{width:40px;height:40px;border:3px solid #1a2235;border-top-color:#00d4ff;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<h1>⚡ AceStream TV</h1>
+<p class="sub" id="sub">Cargando canales...</p>
+
+<div class="vpn">
+  <div style="font-size:1.8em">🛡️</div>
+  <div>
+    <strong>⚠️ Activa tu VPN antes de reproducir</strong>
+    <span>El contenido puede estar bloqueado por tu operador. Conecta una VPN primero.</span>
+  </div>
+</div>
+
+<div class="search">
+  <input type="text" placeholder="🔍 Buscar canal..." oninput="filtrar(this.value)">
+</div>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Cargando canales...</p>
+</div>
+
+<div class="grid" id="grid" style="display:none"></div>
+<div class="toast" id="toast">¡Copiado!</div>
+
+<script>
+// CAMBIA ESTO con tu usuario y nombre de repositorio de GitHub
+const JSON_URL = 'https://josafra.github.io/stream-data/canales.json';
+
+function calidad(nombre) {
+  const n = nombre.toLowerCase();
+  if (n.includes('4k'))   return '<span class="q q4k">4K</span>';
+  if (n.includes('1080')) return '<span class="q q1080">1080p</span>';
+  if (n.includes('720'))  return '<span class="q q720">720p</span>';
+  return '';
+}
+
+function renderCanales(canales) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = canales.map(ch => `
+    <div class="card" data-nombre="${ch.nombre.toLowerCase()}">
+      <div class="card-top">
+        <div class="nombre">${ch.nombre}</div>
+        ${calidad(ch.nombre)}
+      </div>
+      <div class="ace-id">${ch.id}</div>
+      <div class="acciones">
+        <a class="btn-play" href="${ch.link}">▶ Reproducir</a>
+        <button class="btn-copy" onclick="copiar('${ch.id}')">📋 ID</button>
+        <button class="btn-copy" onclick="copiar('${ch.link}')">🔗 Link</button>
+      </div>
+    </div>`).join('');
+  grid.style.display = 'grid';
+  document.getElementById('loading').style.display = 'none';
+}
+
+function filtrar(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    c.style.display = c.dataset.nombre.includes(q) ? '' : 'none';
+  });
+}
+
+function copiar(txt) {
+  navigator.clipboard.writeText(txt).then(() => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    clearTimeout(window._t);
+    window._t = setTimeout(() => t.classList.remove('show'), 2000);
+  });
+}
+
+fetch(JSON_URL)
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('sub').textContent =
+      'Actualizado: ' + data.actualizado + ' · ' + data.total + ' canales';
+    renderCanales(data.canales);
+  })
+  .catch(() => {
+    document.getElementById('loading').innerHTML =
+      '<p style="color:#ff4466">❌ Error cargando canales. Comprueba tu conexión.</p>';
+  });
+</script>
+</body>
+</html>
