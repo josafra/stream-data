@@ -1,78 +1,94 @@
 #!/usr/bin/env python3
-"""
-Scraper de IDs Acestream usando requests + BeautifulSoup
-Sin navegador, mucho más rápido
-"""
-import requests
-from bs4 import BeautifulSoup
-import json, re, datetime, os
+from playwright.sync_api import sync_playwright
+import json, re, datetime, os, sys
 
 URL = "https://aceid.mywire.org/listado/"
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "es-ES,es;q=0.9",
-}
-
 def extraer_canales():
-    print(f"[*] Descargando {URL}...")
-    try:
-        r = requests.get(URL, headers=HEADERS, timeout=15)
-        r.raise_for_status()
-        html = r.text
-        print(f"[*] HTML descargado: {len(html)} chars")
-    except Exception as e:
-        print(f"[!] Error: {e}")
-        return []
+    with sync_playwright() as p:
+        print("[*] Iniciando Chromium...")
+        browser = p.chromium.launch(
+            headless=True,
+            args=['--no-sandbox','--disable-setuid-sandbox',
+                  '--disable-dev-shm-usage','--disable-gpu']
+        )
+        page = browser.new_page(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        )
+        page.set_default_timeout(15000)
 
-    soup = BeautifulSoup(html, "html.parser")
+        # Interceptar peticiones para capturar IDs de la API
+        ids_api = []
+        def on_response(response):
+            try:
+                if "json" in response.headers.get("content-type",""):
+                    body = response.json()
+                    text = json.dumps(body)
+                    found = re.findall(r'\b[0-9a-f]{40}\b', text)
+                    ids_api.extend(found)
+                    if found:
+                        print(f"[*] API capturada: {response.url} → {len(found)} IDs")
+            except:
+                pass
+        page.on("response", on_response)
 
-    # Buscar nombres de canales
-    nombres = [h.get_text(strip=True) for h in soup.find_all("h5")]
-    print(f"[*] Nombres: {len(nombres)}")
+        print(f"[*] Cargando {URL}...")
+        try:
+            page.goto(URL, wait_until="domcontentloaded", timeout=15000)
+        except Exception as e:
+            print(f"[!] {e}")
 
-    # Buscar IDs de 40 chars en todo el HTML
-    ids = list(dict.fromkeys(re.findall(r'\b[0-9a-f]{40}\b', html)))
-    print(f"[*] IDs completos en HTML: {len(ids)}")
+        page.wait_for_timeout(3000)
 
-    # Buscar también en atributos data-*
-    for el in soup.find_all(attrs={"data-id": True}):
-        val = el["data-id"]
-        if re.match(r'^[0-9a-f]{40}$', val) and val not in ids:
-            ids.append(val)
+        # Interceptar clipboard
+        page.evaluate("""
+            window.__ids = [];
+            Object.defineProperty(navigator, 'clipboard', {
+                value: { writeText: t => { window.__ids.push(t); return Promise.resolve(); } },
+                configurable: true
+            });
+        """)
 
-    for el in soup.find_all(attrs={"data-hash": True}):
-        val = el["data-hash"]
-        if re.match(r'^[0-9a-f]{40}$', val) and val not in ids:
-            ids.append(val)
+        # Obtener nombres
+        nombres = page.eval_on_selector_all("h5", "els => els.map(e => e.innerText.trim())")
+        print(f"[*] Canales: {len(nombres)}")
 
-    # Buscar en href acestream://
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if href.startswith("acestream://"):
-            ace_id = href.replace("acestream://", "")
-            if re.match(r'^[0-9a-f]{40}$', ace_id) and ace_id not in ids:
-                ids.append(ace_id)
+        # Pulsar botones copiar
+        botones = page.query_selector_all("button")
+        copiar = [b for b in botones if "copiar" in (b.inner_text() or "").lower()]
+        print(f"[*] Botones copiar: {len(copiar)}")
+        for btn in copiar:
+            try:
+                btn.click(timeout=2000)
+                page.wait_for_timeout(60)
+            except:
+                pass
 
-    print(f"[*] Total IDs únicos: {len(ids)}")
+        page.wait_for_timeout(1000)
 
-    canales = []
-    for i, ace_id in enumerate(ids):
-        nombre = nombres[i] if i < len(nombres) else f"Canal {i+1}"
-        canales.append({
-            "nombre": nombre,
-            "id": ace_id,
-            "link": f"acestream://{ace_id}"
-        })
+        ids_clipboard = page.evaluate("window.__ids") or []
+        print(f"[*] IDs clipboard: {len(ids_clipboard)}")
 
-    return canales
+        # IDs en HTML
+        html = page.content()
+        ids_html = re.findall(r'\b[0-9a-f]{40}\b', html)
+        print(f"[*] IDs HTML: {len(ids_html)}")
+
+        browser.close()
+
+        # Combinar todas las fuentes
+        todos = list(dict.fromkeys(ids_clipboard + ids_api + ids_html))
+        print(f"[*] Total únicos: {len(todos)}")
+
+        canales = []
+        for i, ace_id in enumerate(todos):
+            nombre = nombres[i] if i < len(nombres) else f"Canal {i+1}"
+            canales.append({"nombre": nombre, "id": ace_id, "link": f"acestream://{ace_id}"})
+
+        return canales
 
 if __name__ == "__main__":
-    print("=" * 50)
-    print("  Scraper IDs Acestream (requests)")
-    print("=" * 50)
-
+    print("="*50)
     canales = extraer_canales()
 
     resultado = {
@@ -85,8 +101,7 @@ if __name__ == "__main__":
     with open("docs/canales.json", "w", encoding="utf-8") as f:
         json.dump(resultado, f, ensure_ascii=False, indent=2)
 
-    print(f"[✓] {len(canales)} canales en docs/canales.json")
-
+    print(f"[✓] {len(canales)} canales guardados")
     if len(canales) == 0:
-        print("[!] AVISO: 0 canales. Los IDs probablemente se cargan con JS.")
-        print("[!] El JSON se guarda igualmente para no romper la app.")
+        print("[!] 0 canales — los IDs no están en el HTML estático")
+        sys.exit(0)  # No falla el workflow
