@@ -1,6 +1,6 @@
 {
-  "actualizado": "20/02/2026 19:02 UTC",
-  "total": 107,
+  "actualizado": "21/02/2026 02:41 UTC",
+  "total": 106,
   "canales": [
     {
       "nombre": "DAZN 1 1080p",
@@ -21,11 +21,6 @@
       "nombre": "DAZN 2 1080p",
       "id": "fb2dd566824658eeab27aae19a01c09430f1a97d",
       "link": "acestream://fb2dd566824658eeab27aae19a01c09430f1a97d"
-    },
-    {
-      "nombre": "DAZN 2",
-      "id": "01ce89b571b6c89bc19ccaafc913d483ac65c61d",
-      "link": "acestream://01ce89b571b6c89bc19ccaafc913d483ac65c61d"
     },
     {
       "nombre": "DAZN 2",
@@ -69,13 +64,13 @@
     },
     {
       "nombre": "DAZN F1",
-      "id": "895d08633bb22c2573281655cf3ca44de476cc73",
-      "link": "acestream://895d08633bb22c2573281655cf3ca44de476cc73"
+      "id": "d719181097d256073844390b3e094fbcb1bceaa4",
+      "link": "acestream://d719181097d256073844390b3e094fbcb1bceaa4"
     },
     {
       "nombre": "DAZN F1",
-      "id": "d719181097d256073844390b3e094fbcb1bceaa4",
-      "link": "acestream://d719181097d256073844390b3e094fbcb1bceaa4"
+      "id": "895d08633bb22c2573281655cf3ca44de476cc73",
+      "link": "acestream://895d08633bb22c2573281655cf3ca44de476cc73"
     },
     {
       "nombre": "DAZN F1",
@@ -404,11 +399,6 @@
     },
     {
       "nombre": "M+ Liga De Campeones",
-      "id": "9db029dff6a9c637d1f670e78dbc1a479b9b406e",
-      "link": "acestream://9db029dff6a9c637d1f670e78dbc1a479b9b406e"
-    },
-    {
-      "nombre": "M+ Liga De Campeones",
       "id": "2b51710cee513e8939785fa3e7980f32d4e0415f",
       "link": "acestream://2b51710cee513e8939785fa3e7980f32d4e0415f"
     },
@@ -416,6 +406,11 @@
       "nombre": "M+ Liga De Campeones",
       "id": "97df5b7824948972d041d8ca2a4d29c90b641bc9",
       "link": "acestream://97df5b7824948972d041d8ca2a4d29c90b641bc9"
+    },
+    {
+      "nombre": "M+ Liga De Campeones",
+      "id": "9db029dff6a9c637d1f670e78dbc1a479b9b406e",
+      "link": "acestream://9db029dff6a9c637d1f670e78dbc1a479b9b406e"
     },
     {
       "nombre": "M+ Liga De Campeones",
