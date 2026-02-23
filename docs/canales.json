@@ -1,6 +1,6 @@
 {
-  "actualizado": "23/02/2026 02:53 UTC",
-  "total": 106,
+  "actualizado": "23/02/2026 07:18 UTC",
+  "total": 66,
   "canales": [
     {
       "nombre": "DAZN 1 1080p",
@@ -34,16 +34,6 @@
     },
     {
       "nombre": "DAZN 3",
-      "id": "908bc5e7ae52afc06e40793b6db749dba11a1780",
-      "link": "acestream://908bc5e7ae52afc06e40793b6db749dba11a1780"
-    },
-    {
-      "nombre": "DAZN 3",
-      "id": "e1ccce973c71547a8acda770885cb1c30a9cf3e1",
-      "link": "acestream://e1ccce973c71547a8acda770885cb1c30a9cf3e1"
-    },
-    {
-      "nombre": "DAZN 3",
       "id": "d1d9ec2361a6ac8edc0b2841866383768cc28df9",
       "link": "acestream://d1d9ec2361a6ac8edc0b2841866383768cc28df9"
     },
@@ -58,14 +48,9 @@
       "link": "acestream://15fe785e2dc9d16a7b0a1c49a9ad5a7ab88ef2b7"
     },
     {
-      "nombre": "DAZN Baloncesto 1",
-      "id": "53962d7fb865aff73b34a3afb2905cd492f60d75",
-      "link": "acestream://53962d7fb865aff73b34a3afb2905cd492f60d75"
-    },
-    {
-      "nombre": "DAZN Baloncesto 2",
-      "id": "22b702984a0db43fd371c30e2df150b2336551cd",
-      "link": "acestream://22b702984a0db43fd371c30e2df150b2336551cd"
+      "nombre": "DAZN Baloncesto 2 720p",
+      "id": "d7e6b6bb1666740a21099fe6ceb0178a14f58e0c",
+      "link": "acestream://d7e6b6bb1666740a21099fe6ceb0178a14f58e0c"
     },
     {
       "nombre": "DAZN F1 1080p",
@@ -94,21 +79,6 @@
     },
     {
       "nombre": "DAZN LaLiga",
-      "id": "eb4975702ceadca7ed74f8707e17a9f55569dbb9",
-      "link": "acestream://eb4975702ceadca7ed74f8707e17a9f55569dbb9"
-    },
-    {
-      "nombre": "DAZN LaLiga",
-      "id": "e2b8a4aba2f4ea3dd68992fcdb65c9e62d910b05",
-      "link": "acestream://e2b8a4aba2f4ea3dd68992fcdb65c9e62d910b05"
-    },
-    {
-      "nombre": "DAZN LaLiga",
-      "id": "4955867fad3bc92e5b4c36045699fc277800fb18",
-      "link": "acestream://4955867fad3bc92e5b4c36045699fc277800fb18"
-    },
-    {
-      "nombre": "DAZN LaLiga",
       "id": "dda5d2cace9bc4cb0918e62bc50d657d4a10496a",
       "link": "acestream://dda5d2cace9bc4cb0918e62bc50d657d4a10496a"
     },
@@ -121,21 +91,6 @@
       "nombre": "Eurosport 1 720p",
       "id": "547ab7146a86d6119c9332c011669544720124e3",
       "link": "acestream://547ab7146a86d6119c9332c011669544720124e3"
-    },
-    {
-      "nombre": "Eurosport 2",
-      "id": "24f940fef7e270b6b3ae5d9dc713a80c8345cfba",
-      "link": "acestream://24f940fef7e270b6b3ae5d9dc713a80c8345cfba"
-    },
-    {
-      "nombre": "Eurosport 2",
-      "id": "f5908690485ae2facecf3074446ba4315f07a193",
-      "link": "acestream://f5908690485ae2facecf3074446ba4315f07a193"
-    },
-    {
-      "nombre": "Eurosport 2",
-      "id": "d01d255aaaf2fb91c0a8c98a826b4bd4769d81c1",
-      "link": "acestream://d01d255aaaf2fb91c0a8c98a826b4bd4769d81c1"
     },
     {
       "nombre": "Primera Federación 1080p",
@@ -208,54 +163,9 @@
       "link": "acestream://2d997da301573c5aba78f969d0d37eb6107941b2"
     },
     {
-      "nombre": "Teledeporte",
-      "id": "b0d1489c9f3239349665ad5ab423363f2b02e5ae",
-      "link": "acestream://b0d1489c9f3239349665ad5ab423363f2b02e5ae"
-    },
-    {
-      "nombre": "LaLiga TV HyperMotion",
-      "id": "1f75d92098580443857caa95a719103cb83781b0",
-      "link": "acestream://1f75d92098580443857caa95a719103cb83781b0"
-    },
-    {
-      "nombre": "LaLiga TV HyperMotion",
-      "id": "4636ed75106cb00e9c70cc2029edf0a4df7ad73f",
-      "link": "acestream://4636ed75106cb00e9c70cc2029edf0a4df7ad73f"
-    },
-    {
-      "nombre": "LaLiga TV HyperMotion",
-      "id": "87bb542f974b6b9e89d0f2e20ed6dc93426f4be0",
-      "link": "acestream://87bb542f974b6b9e89d0f2e20ed6dc93426f4be0"
-    },
-    {
       "nombre": "M+ Deportes 1080p",
       "id": "f828a32d8ea03a3cabd3ce3ebecb249ec111c7e5",
       "link": "acestream://f828a32d8ea03a3cabd3ce3ebecb249ec111c7e5"
-    },
-    {
-      "nombre": "M+ Deportes",
-      "id": "6e031aed136bf97d8667fcd5fc49c73256928281",
-      "link": "acestream://6e031aed136bf97d8667fcd5fc49c73256928281"
-    },
-    {
-      "nombre": "M+ Deportes",
-      "id": "c6a824a81b36f6c3529826477caf2ad94b45776d",
-      "link": "acestream://c6a824a81b36f6c3529826477caf2ad94b45776d"
-    },
-    {
-      "nombre": "M+ Deportes",
-      "id": "b35b3eb8e22365bf3469efd6d1f3b82618a6e18a",
-      "link": "acestream://b35b3eb8e22365bf3469efd6d1f3b82618a6e18a"
-    },
-    {
-      "nombre": "M+ Deportes",
-      "id": "77cf022557c56cdf8d8115f50e61f846ad72ee05",
-      "link": "acestream://77cf022557c56cdf8d8115f50e61f846ad72ee05"
-    },
-    {
-      "nombre": "M+ Deportes",
-      "id": "3b50a1dca0977e3761d016edd79314ab797f74f6",
-      "link": "acestream://3b50a1dca0977e3761d016edd79314ab797f74f6"
     },
     {
       "nombre": "M+ Deportes 2 1080p",
@@ -266,16 +176,6 @@
       "nombre": "M+ Deportes 2 720p",
       "id": "3afe1af18f8ff78e9946856911b00c67477052b5",
       "link": "acestream://3afe1af18f8ff78e9946856911b00c67477052b5"
-    },
-    {
-      "nombre": "M+ Deportes 2",
-      "id": "6b15368775693c33c49fab02e7900c1976a5da90",
-      "link": "acestream://6b15368775693c33c49fab02e7900c1976a5da90"
-    },
-    {
-      "nombre": "M+ Deportes 2",
-      "id": "3774d8feab016ca766b35ea8488e7514ca30e0ee",
-      "link": "acestream://3774d8feab016ca766b35ea8488e7514ca30e0ee"
     },
     {
       "nombre": "M+ Deportes 3 720p",
@@ -319,31 +219,11 @@
     },
     {
       "nombre": "M+ LaLiga TV 1080p",
-      "id": "3ace1463a7cad979c3a4002b245487e9982e9f1a",
-      "link": "acestream://3ace1463a7cad979c3a4002b245487e9982e9f1a"
-    },
-    {
-      "nombre": "M+ LaLiga TV",
-      "id": "f863873de9f7b2996dde19a0657dd89835af3007",
-      "link": "acestream://f863873de9f7b2996dde19a0657dd89835af3007"
-    },
-    {
-      "nombre": "M+ LaLiga TV",
-      "id": "c9321006921967d6258df6945f1d598a5c0cbf1e",
-      "link": "acestream://c9321006921967d6258df6945f1d598a5c0cbf1e"
-    },
-    {
-      "nombre": "M+ LaLiga TV",
       "id": "31c19ffb3472c289c5bbbbc174449c8ed0d19e38",
       "link": "acestream://31c19ffb3472c289c5bbbbc174449c8ed0d19e38"
     },
     {
       "nombre": "M+ LaLiga TV",
-      "id": "51b363b1c4d42724e05240ad068ad219df8042ec",
-      "link": "acestream://51b363b1c4d42724e05240ad068ad219df8042ec"
-    },
-    {
-      "nombre": "M+ LaLiga TV 2",
       "id": "b8eb9c9868d487402569bba2d97a8af113d033fe",
       "link": "acestream://b8eb9c9868d487402569bba2d97a8af113d033fe"
     },
@@ -369,26 +249,6 @@
     },
     {
       "nombre": "M+ Liga De Campeones 1080p",
-      "id": "91b2a1fe85f5bb4a6cf9ef6d01cc65883d986920",
-      "link": "acestream://91b2a1fe85f5bb4a6cf9ef6d01cc65883d986920"
-    },
-    {
-      "nombre": "M+ Liga De Campeones",
-      "id": "2b51710cee513e8939785fa3e7980f32d4e0415f",
-      "link": "acestream://2b51710cee513e8939785fa3e7980f32d4e0415f"
-    },
-    {
-      "nombre": "M+ Liga De Campeones",
-      "id": "97df5b7824948972d041d8ca2a4d29c90b641bc9",
-      "link": "acestream://97df5b7824948972d041d8ca2a4d29c90b641bc9"
-    },
-    {
-      "nombre": "M+ Liga De Campeones",
-      "id": "9db029dff6a9c637d1f670e78dbc1a479b9b406e",
-      "link": "acestream://9db029dff6a9c637d1f670e78dbc1a479b9b406e"
-    },
-    {
-      "nombre": "M+ Liga De Campeones",
       "id": "e572a5178ff72eed7d1d751a18b4b3419699f370",
       "link": "acestream://e572a5178ff72eed7d1d751a18b4b3419699f370"
     },
@@ -409,26 +269,6 @@
     },
     {
       "nombre": "M+ Liga De Campeones 2 1080p",
-      "id": "47188da7d2e4beaee82cff174f223fdd23f78fa6",
-      "link": "acestream://47188da7d2e4beaee82cff174f223fdd23f78fa6"
-    },
-    {
-      "nombre": "M+ Liga De Campeones 2",
-      "id": "38f7b2044e549df2039ff26cefa6f9a60c854d5e",
-      "link": "acestream://38f7b2044e549df2039ff26cefa6f9a60c854d5e"
-    },
-    {
-      "nombre": "M+ Liga De Campeones 2",
-      "id": "8156912ae14f6174a19c8a4efcf36a06e847f632",
-      "link": "acestream://8156912ae14f6174a19c8a4efcf36a06e847f632"
-    },
-    {
-      "nombre": "M+ Liga De Campeones 2",
-      "id": "74ab4e4ec7e2da001f473ca40893b7307b8029c5",
-      "link": "acestream://74ab4e4ec7e2da001f473ca40893b7307b8029c5"
-    },
-    {
-      "nombre": "M+ Liga De Campeones 2",
       "id": "338b5de78b0b40a6f9ca3cc0cf9be93341b9ceea",
       "link": "acestream://338b5de78b0b40a6f9ca3cc0cf9be93341b9ceea"
     },
@@ -474,36 +314,6 @@
     },
     {
       "nombre": "M+ Vamos 1080p",
-      "id": "866a8af8faacf8fc9eb997ab5a68b4dfee4edc77",
-      "link": "acestream://866a8af8faacf8fc9eb997ab5a68b4dfee4edc77"
-    },
-    {
-      "nombre": "M+ Vamos",
-      "id": "0e5d8c9724fa9163f49096b70484e315251eb785",
-      "link": "acestream://0e5d8c9724fa9163f49096b70484e315251eb785"
-    },
-    {
-      "nombre": "M+ Vamos",
-      "id": "ad5ca6e24f87f47a9c3c5bc10c7e8e5af46767fc",
-      "link": "acestream://ad5ca6e24f87f47a9c3c5bc10c7e8e5af46767fc"
-    },
-    {
-      "nombre": "M+ Vamos",
-      "id": "476b6f6583517bd75c15c4663bf45fab7c8da9cf",
-      "link": "acestream://476b6f6583517bd75c15c4663bf45fab7c8da9cf"
-    },
-    {
-      "nombre": "M+ Vamos",
-      "id": "4ee16a7f854219fa2974ef1468e6b2f8574189dd",
-      "link": "acestream://4ee16a7f854219fa2974ef1468e6b2f8574189dd"
-    },
-    {
-      "nombre": "M+ Vamos",
-      "id": "0cd11c1f51b84ebe9954496b3ef9b6aeccf7307c",
-      "link": "acestream://0cd11c1f51b84ebe9954496b3ef9b6aeccf7307c"
-    },
-    {
-      "nombre": "M+ Vamos",
       "id": "8b9e46eb3a9b4ef23b7d3d86c73a0851580f8caa",
       "link": "acestream://8b9e46eb3a9b4ef23b7d3d86c73a0851580f8caa"
     },
@@ -521,16 +331,6 @@
       "nombre": "Movistar Plus+ 1080p",
       "id": "b6ffbbc72a5b6b579faf79ebac229af7a25b933b",
       "link": "acestream://b6ffbbc72a5b6b579faf79ebac229af7a25b933b"
-    },
-    {
-      "nombre": "Movistar Plus+ 1080p",
-      "id": "d23497596720b47b096ec0f850d6d26a19d1a336",
-      "link": "acestream://d23497596720b47b096ec0f850d6d26a19d1a336"
-    },
-    {
-      "nombre": "Movistar Plus+ 1080p",
-      "id": "1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78",
-      "link": "acestream://1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78"
     }
   ]
 }
