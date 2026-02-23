@@ -1,5 +1,5 @@
 {
-  "actualizado": "23/02/2026 13:25 UTC",
+  "actualizado": "23/02/2026 19:19 UTC",
   "total": 93,
   "canales": [
     {
@@ -299,11 +299,6 @@
     },
     {
       "nombre": "M+ LaLiga TV",
-      "id": "00c9bc9c5d7d87680a5a6bed349edfa775a89947",
-      "link": "acestream://00c9bc9c5d7d87680a5a6bed349edfa775a89947"
-    },
-    {
-      "nombre": "M+ LaLiga TV",
       "id": "c9321006921967d6258df6945f1d598a5c0cbf1e",
       "link": "acestream://c9321006921967d6258df6945f1d598a5c0cbf1e"
     },
@@ -354,6 +349,11 @@
     },
     {
       "nombre": "M+ Liga De Campeones",
+      "id": "2b51710cee513e8939785fa3e7980f32d4e0415f",
+      "link": "acestream://2b51710cee513e8939785fa3e7980f32d4e0415f"
+    },
+    {
+      "nombre": "M+ Liga De Campeones",
       "id": "97df5b7824948972d041d8ca2a4d29c90b641bc9",
       "link": "acestream://97df5b7824948972d041d8ca2a4d29c90b641bc9"
     },
@@ -361,11 +361,6 @@
       "nombre": "M+ Liga De Campeones",
       "id": "9db029dff6a9c637d1f670e78dbc1a479b9b406e",
       "link": "acestream://9db029dff6a9c637d1f670e78dbc1a479b9b406e"
-    },
-    {
-      "nombre": "M+ Liga De Campeones",
-      "id": "2b51710cee513e8939785fa3e7980f32d4e0415f",
-      "link": "acestream://2b51710cee513e8939785fa3e7980f32d4e0415f"
     },
     {
       "nombre": "M+ Liga De Campeones",
@@ -439,6 +434,11 @@
     },
     {
       "nombre": "M+ Vamos 1080p",
+      "id": "ad5ca6e24f87f47a9c3c5bc10c7e8e5af46767fc",
+      "link": "acestream://ad5ca6e24f87f47a9c3c5bc10c7e8e5af46767fc"
+    },
+    {
+      "nombre": "M+ Vamos",
       "id": "f51674b1dd1ab5a668fa97a0f13a490632f0d7ca",
       "link": "acestream://f51674b1dd1ab5a668fa97a0f13a490632f0d7ca"
     },
